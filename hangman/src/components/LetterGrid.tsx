@@ -1,36 +1,33 @@
 import { Button} from "@chakra-ui/react";
 import { useState } from "react";
+import alphabet from "../Typescript/alphabet";
+
 
 interface MyLetters{
-  letters: string[]
-  activeLetter: string[]
-  inactiveLetter: string[]
-  addGuessed:(letter: string) => void
+//   letters: string[]
+//   activeLetter: string[]
+//   inactiveLetter: string[]
+  addGuessedLetter:(letter: string) => void
 
 }
 
-// test
-const hola = () => console.log('hola')
-
-const LetterGrid = ({letters, activeLetter, inactiveLetter, addGuessed}:MyLetters) => {
-
-    
+const LetterGrid = ({addGuessedLetter}:MyLetters) => {
 
   return (
     <>
-          {letters.map((letter, index) => 
+          {alphabet.map(letter => 
             <Button
               margin={2}
               size="lg"
               width="50px"
               colorScheme="teal"
               variant="outline"
-              key={index}
-              onClick={() => addGuessed(letter)}
+              onClick={() => addGuessedLetter(letter)}
+              key={letter}
             >
               {letter}
             </Button>
-            )}
+          )}
     </>
   );
 };

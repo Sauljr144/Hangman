@@ -1,7 +1,7 @@
 import { Button, Center, Grid, GridItem } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 import LetterGrid from "./LetterGrid";
-import alphabet from "../Typescript/alphabet";
+
 import words from "../data/words.json";
 import RandomWord from "./RandomWord";
 
@@ -15,7 +15,7 @@ const Game = () => {
 
   const [guessed, setGuessed] = useState<string[]>([]);
 
-  const incorrect = guessed.filter(letter => !theRndWord.includes(letter));
+  // const incorrect = guessed.filter(letter => !theRndWord.includes(letter));
 
   const addGuessed = useCallback((letter: string) =>{
     if(guessed.includes(letter)) return;
@@ -40,33 +40,8 @@ const Game = () => {
     return () => {
       document.removeEventListener('keypress',handler)
     }
+  }, [guessed])
 
-  
-  }, [])
-
-
-
-  // const [correct, setCorrect] = useState<string[]>([])
-
-  // const [wordToGuess, setWordToGuess] = useState('')
-
-  // const theRndWord = 'thisistherandomword'
-  //  using a useEffect to render the random word generated from our rndWord and setting it in our setTheRndWord
-  // useEffect(() => {
-  //   // const rndWord = words[Math.floor(Math.random() * words.length)];
-  //   // setTheRndWord(rndWord);
-  // }, []);
-
-  // const mysteryWord = theRndWord.split("").map(letter =>  correct.includes(letter) ? letter : '_').join(' ')
-  // console.log(mysteryWord)
-  
-  // const handleClick = () => {
-  //   alphabet.map(letter =>{
-  //     if(theRndWord.includes(letter))
-  //                 setCorrect([...correct, letter])
-  //   })
-  //   console.log('hola')
-  // }
 
   return (
     <>
@@ -79,7 +54,7 @@ const Game = () => {
           </Center>
         </GridItem>
         <GridItem>
-            <LetterGrid activeLetter={guessed.filter(letter => theRndWord.includes(letter))} inactiveLetter={incorrect} addGuessed={addGuessed} letters={alphabet}/>
+            <LetterGrid addGuessedLetter={addGuessed}/>
         </GridItem>
       </Grid>
     </>

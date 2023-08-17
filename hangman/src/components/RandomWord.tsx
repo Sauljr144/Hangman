@@ -8,11 +8,8 @@ interface RandomWord{
 
 }
 
-
 const RandomWord = ({theWord, guessed}:RandomWord) => {
 
-  
-  
   return (
     <>
 
