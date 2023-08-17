@@ -1,31 +1,27 @@
 import { useEffect, useState } from "react"
 import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+
+
+
 
 const useData = () => {
-    const [data, setData] = useState([]);
-    const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<string[]>([]);
+    const [error, setError] = useState('')
 
     useEffect(() =>{
+       
         const controller = new AbortController();
-        setIsLoading(true);
-        apiClient
-        .get('/words.json', {signal: controller.signal})
-        .then(response => {
-            setData(response.data);
-            setIsLoading(false)
-        })
-        .catch(error => {
-            if (error instanceof CanceledError) return;
-        setError(error.message);
-        setIsLoading(false);
-        })
 
-        return()=> controller.abort()
+        apiClient
+        .get('/words.json',  { signal: controller.signal})
+        .then(response => setData(response.data))
+        .catch(error => setError(error.message))
+
+        return () => controller.abort();
+
     }, []);
 
-    return {data, error, isLoading}
+    return {data, error}
 
 };
 
