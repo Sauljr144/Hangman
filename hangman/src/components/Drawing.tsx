@@ -1,3 +1,5 @@
+//custom elements to draw the hangman
+
 const head = (
     <div key='1'
       style={{

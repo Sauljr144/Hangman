@@ -55,7 +55,6 @@ const Game = () => {
     <>
       <Grid>
        
-       
         <GridItem  marginY="50px">
           <Center>
           <Drawing incorrectGuesses = {incorrect.length}/>
@@ -96,6 +95,7 @@ const Game = () => {
         </GridItem>
         </Center>
       </Grid>
+      {loser && <audio autoPlay src="../src/assets/song.aac"></audio>}
     </>
   );
 };
