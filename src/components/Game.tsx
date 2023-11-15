@@ -4,7 +4,7 @@ import LetterGrid from "./LetterGrid";
 import words from "../data/words.json";
 import RandomWord from "./RandomWord";
 import Drawing from "./Drawing";
-import nvr from '../src/assets/song.aac'
+import song from '../assets/song.aac'
 
 
 const Game = () => {
@@ -96,7 +96,7 @@ const Game = () => {
         </GridItem>
         </Center>
       </Grid>
-      {loser && <audio autoPlay src={nvr}></audio>}
+      {loser && <audio autoPlay src={song}></audio>}
     </>
   );
 };
