@@ -1,5 +1,4 @@
 import { Button, Text} from "@chakra-ui/react";
-import { useState } from "react";
 
 // Interface to get our random word from our Game.tsx
 interface RandomWord{

@@ -1,5 +1,5 @@
 import { Button, Center, Grid, GridItem } from "@chakra-ui/react";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import LetterGrid from "./LetterGrid";
 import words from "../data/words.json";
 import RandomWord from "./RandomWord";
@@ -9,7 +9,7 @@ import Drawing from "./Drawing";
 const Game = () => {
 
   // using a useState to set our random word and pass it in to the RandomWord component's prop
-  const [theRndWord, setTheRndWord] = useState(() => {
+  const [theRndWord] = useState(() => {
     return words[Math.floor(Math.random()*words.length)]
   });
 

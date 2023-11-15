@@ -1,7 +1,5 @@
 import { Button} from "@chakra-ui/react";
-import { useState } from "react";
 import alphabet from "../Typescript/alphabet";
-import { color } from "framer-motion";
 
 
 interface MyLetters{
